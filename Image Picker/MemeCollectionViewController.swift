@@ -28,6 +28,8 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        collectionView.registerClass(MemeCollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath) as! MemeCollectionViewCell
         
         let memeTextAttributes = [
@@ -54,7 +56,9 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
     
     //To Show 3 items per row
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width - 3)/3, height: 110)
+        
+        let size = CGSize(width: (collectionView.frame.size.width - 20)/3, height: 100)
+        return size
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {

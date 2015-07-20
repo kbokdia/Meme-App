@@ -30,6 +30,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         let cell = tableView.dequeueReusableCellWithIdentifier("tableCell") as! MemeTableCell
         
         let currentMeme = meme[indexPath.row]

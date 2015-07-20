@@ -57,7 +57,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let singleTap = UITapGestureRecognizer(target: self, action: "singleTapAction:")
         self.view.addGestureRecognizer(singleTap)
         
-        println("View Did Load")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -78,7 +77,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
             isEditMemeInvoked = false
         }
-        println("View Will Appear")
     }
     
     override func viewWillDisappear(animated: Bool) {
