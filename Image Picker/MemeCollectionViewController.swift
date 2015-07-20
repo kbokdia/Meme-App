@@ -12,15 +12,16 @@ class MemeCollectionViewController: UIViewController, UICollectionViewDataSource
     
     var meme = (UIApplication.sharedApplication().delegate as! AppDelegate).meme
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.title = "Your Memes"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addMeme")
+    //IBOutlets
+    @IBOutlet weak var collectionView:UICollectionView!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        meme = (UIApplication.sharedApplication().delegate as! AppDelegate).meme
+        collectionView.reloadData()
     }
     
-    func addMeme(){
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return meme.count

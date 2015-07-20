@@ -10,8 +10,8 @@ import UIKit
 
 class MemeTableCell: UITableViewCell {
 
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bottomLabel: UILabel!
+    //@IBOutlet weak var topLabel: UILabel!
+    //@IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var originalImageView: UIImageView!
     @IBOutlet weak var mainLabel: UILabel!
 

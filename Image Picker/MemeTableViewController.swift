@@ -21,6 +21,12 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addMeme")
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        meme = (UIApplication.sharedApplication().delegate as! AppDelegate).meme
+        tableView.reloadData()
+    }
+    
     func addMeme(){
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
@@ -41,11 +47,11 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
             NSStrokeWidthAttributeName : -1.5
         ]
         
-        cell.topLabel.attributedText = NSAttributedString(string: currentMeme.top, attributes: memeTextAttributes)
-        cell.bottomLabel.attributedText = NSAttributedString(string: currentMeme.bottom, attributes: memeTextAttributes)
-        cell.originalImageView.image = currentMeme.originalImage
-        cell.bringSubviewToFront(cell.topLabel)
-        cell.bringSubviewToFront(cell.bottomLabel)
+        //cell.topLabel.attributedText = NSAttributedString(string: currentMeme.top, attributes: memeTextAttributes)
+        //cell.bottomLabel.attributedText = NSAttributedString(string: currentMeme.bottom, attributes: memeTextAttributes)
+        cell.originalImageView.image = currentMeme.memedImage
+        //cell.bringSubviewToFront(cell.topLabel)
+        //cell.bringSubviewToFront(cell.bottomLabel)
         cell.mainLabel.text = currentMeme.top + "..." + currentMeme.bottom
         
         return cell

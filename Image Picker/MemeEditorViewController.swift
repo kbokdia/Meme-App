@@ -9,7 +9,7 @@
 import UIKit
 import AssetsLibrary
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     //Outlets
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -69,6 +69,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.previousTopText = newMeme.top
                 self.bottomTextField.text = newMeme.bottom
                 self.previousBottomText = newMeme.bottom
+                self.saveButton.enabled = true
+                self.activityButton.enabled = true
             }
             else{
                 self.imagePickerView.image = nil
@@ -243,6 +245,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             wasBottomTextFirstResponder = false
         }
         self.view.endEditing(true)
+    }
+    
+    @IBAction func dismissMemeEditor(){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
